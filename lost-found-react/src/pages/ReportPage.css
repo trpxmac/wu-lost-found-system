@@ -1,0 +1,121 @@
+/* ReportPage.css - ฉบับแก้ไขชื่อคลาสไม่ให้ชนใคร */
+
+.report-page-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Sarabun', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  box-sizing: border-box; 
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.input-field:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  outline: none;
+}
+
+textarea.input-field {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* =========================================
+   ปุ่มกด (เปลี่ยนชื่อคลาสใหม่ ไม่ให้ซ้ำหน้าอื่น!)
+   ========================================= */
+
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* แบ่งครึ่งเท่ากัน */
+  gap: 15px;
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* ตั้งค่าพื้นฐานให้ปุ่มทั้ง 2 */
+.btn-report-cancel, 
+.btn-report-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Sarabun', sans-serif;
+  text-align: center;
+}
+
+/* ปุ่มยกเลิก (สีเทา) - ชื่อใหม่: .btn-report-cancel */
+.btn-report-cancel {
+  background-color: #95a5a6;
+  color: white;
+}
+.btn-report-cancel:hover {
+  background-color: #7f8c8d;
+}
+
+/* ปุ่มบันทึก (สีฟ้า) - ชื่อใหม่: .btn-report-submit */
+.btn-report-submit {
+  background-color: #4a90e2;
+  color: white;
+}
+.btn-report-submit:hover {
+  background-color: #357abd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .report-page-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+/* Image Preview */
+.image-preview-box {
+  margin-top: 15px;
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px dashed #ddd;
+}
+.image-preview-box img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 5px;
+}

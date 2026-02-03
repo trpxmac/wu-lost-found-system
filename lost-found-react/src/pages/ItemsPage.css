@@ -1,0 +1,167 @@
+/* 📂 src/pages/ItemsPage.css */
+
+/* 1. ตั้งค่าพื้นฐานหน้า */
+.items-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Sarabun', sans-serif;
+}
+
+/* 2. ช่องค้นหา */
+.search-box {
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.search-box:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+/* 3. ตาราง (แก้ไขใหม่ ✨) */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* เลื่อนได้เฉพาะตอนจำเป็น */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  /* ❌ ลบ min-width: 800px ออก เพื่อให้ยืดหดตามจอคอมได้ */
+}
+
+/* ส่วนหัวตาราง */
+.items-table th {
+  background-color: #34495e !important;
+  color: white !important;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 3px solid #2c3e50;
+  white-space: nowrap; /* หัวตารางห้ามตัดคำ */
+}
+
+.items-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  vertical-align: top; /* จัดชิดบนเวลาตัดบรรทัด */
+  
+  /* ✅ เพิ่ม: ให้ตัดบรรทัดได้ในจอคอม */
+  white-space: normal; 
+  word-wrap: break-word;
+  max-width: 250px; /* จำกัดความกว้างไม่ให้ยืดเกิน */
+}
+
+.items-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* 4. ปุ่มแจ้งของหาย (สีเขียว) */
+.btn-report-submit { 
+    background-color: #27ae60 !important;
+    color: white !important; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-report-submit:hover {
+    background-color: #219150 !important;
+    transform: translateY(-2px);
+}
+
+/* 5. ป้ายสถานะ */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+  white-space: nowrap; /* ป้ายห้ามตัดคำ */
+}
+.badge-red { background: #ffebee; color: #c0392b; border: 1px solid #ffcdd2; }
+.badge-orange { background: #fff3e0; color: #e67e22; border: 1px solid #ffe0b2; }
+.badge-green { background: #e8f5e9; color: #27ae60; border: 1px solid #c8e6c9; }
+
+/* 6. ปุ่มไอคอนจัดการ */
+.action-buttons {
+  display: flex;
+  gap: 5px;
+  justify-content: center; /* จัดกึ่งกลาง */
+}
+
+.btn-icon {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+  color: white !important;
+  text-decoration: none;
+  flex-shrink: 0; /* ห้ามปุ่มหด */
+}
+.btn-icon:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.btn-icon.view { background-color: #3498db !important; }
+.btn-icon.edit { background-color: #f1c40f !important; }
+.btn-icon.delete { background-color: #e74c3c !important; }
+
+/* 7. Modal Styles */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000; backdrop-filter: blur(3px);
+}
+.modal-box {
+  background: white; padding: 30px; width: 90%; max-width: 500px;
+  border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.modal-box h3 { margin-top: 0; margin-bottom: 20px; color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #333; }
+.input-field { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px; }
+.btn-report-cancel { background: #95a5a6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+
+/* =========================================
+   📱 Mobile Responsive (เฉพาะมือถือ)
+   ========================================= */
+@media (max-width: 768px) {
+  .items-page { padding: 10px; }
+  .search-box { margin-bottom: 15px; }
+  
+  /* 🔥 ในมือถือ ให้กลับไปเป็นแบบเลื่อนซ้ายขวาเหมือนเดิม */
+  .items-table {
+     min-width: 800px; /* บังคับกว้างเพื่อให้เลื่อนได้ */
+  }
+  .items-table td {
+     white-space: nowrap; /* ห้ามตัดคำ เพื่อให้อ่านง่ายในแนวนอน */
+     max-width: none;
+  }
+}

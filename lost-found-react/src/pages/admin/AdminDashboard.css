@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap');
+
+.dashboard-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Sarabun', sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboard-container h2 {
+  color: #2c3e50;
+  border-bottom: 3px solid #3498db;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   0. ส่วนจัด Layout
+   ========================================= */
+.top-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   1. ส่วนกล่องสถิติ (Stats Cards)
+   ========================================= */
+.stats-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s;
+  background-color: #fff;
+  border-top: 5px solid #ccc;
+  cursor: pointer; /* เพิ่มเมาส์รูปมือ */
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-card h3 { margin: 0; font-size: 1rem; color: #777; font-weight: normal; }
+.stat-number { font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #333; }
+
+/* สีตาม Class */
+.stat-card.blue { border-top-color: #3498db; }
+.stat-card.red { border-top-color: #e74c3c; }
+.stat-card.orange { border-top-color: #f39c12; }
+.stat-card.green { border-top-color: #2ecc71; }
+
+/* =========================================
+   1.1 ส่วนกราฟวงกลม
+   ========================================= */
+.chart-box {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    min-width: 300px;
+    text-align: center;
+    border-top: 5px solid #34495e;
+}
+.chart-box h3 { margin-top: 0; color: #555; margin-bottom: 15px; }
+
+/* =========================================
+   2. ส่วนตารางรายการล่าสุด (Table)
+   ========================================= */
+.recent-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.recent-section h3 {
+  margin-top: 0; color: #555; margin-bottom: 20px;
+  padding-bottom: 10px; border-bottom: 1px solid #f0f0f0;
+}
+
+.manage-table { width: 100%; border-collapse: collapse; }
+
+/* 🔥 แก้ไขตรงนี้: บังคับหัวตารางให้ชัดเจน */
+.manage-table th {
+  background-color: #ffffff !important; /* พื้นหลังขาว */
+  color: #2c3e50 !important; /* ตัวหนังสือสีเข้ม (Dark Navy) */
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1rem;
+  border-bottom: 2px solid #eee; /* เส้นขอบ Default */
+  white-space: nowrap; /* ห้ามตัดบรรทัด */
+}
+
+.manage-table td {
+  padding: 12px 15px; 
+  border-bottom: 1px solid #f1f1f1;
+  color: #444; 
+  vertical-align: middle;
+}
+.manage-table tr:hover { background-color: #fdfdfd; }
+
+/* =========================================
+   3. ป้ายสถานะ (Badges)
+   ========================================= */
+.badge-dash {
+  padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;
+  font-weight: bold; display: inline-block; min-width: 80px; text-align: center;
+}
+.badge-dash.badge-red { background: #ffebee; color: #c0392b; border: 1px solid #ffcdd2; }
+.badge-dash.badge-orange { background: #fff3e0; color: #e67e22; border: 1px solid #ffe0b2; }
+.badge-dash.badge-green { background: #e8f5e9; color: #27ae60; border: 1px solid #c8e6c9; }

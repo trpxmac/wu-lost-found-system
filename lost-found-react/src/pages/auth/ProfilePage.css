@@ -1,0 +1,71 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 80vh;
+}
+
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-header h2 { margin-bottom: 5px; color: #333; }
+.profile-header p { color: #888; font-size: 0.9rem; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.disabled-input {
+  background-color: #f5f5f5;
+  color: #777;
+  cursor: not-allowed;
+  border: 1px solid #eee;
+}
+
+.hint-text { font-size: 0.75rem; color: #999; display: block; margin-top: 4px; }
+
+.role-badge {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.role-badge.admin { background: #ffeaa7; color: #d63031; }
+.role-badge.user { background: #dfe6e9; color: #2d3436; }
+
+.btn-save-profile {
+  width: 100%;
+  padding: 12px;
+  background: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-save-profile:hover { background: #074b83; }

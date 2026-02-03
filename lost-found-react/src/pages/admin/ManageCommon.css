@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap');
+
+/* =========================================
+   ManageCommon.css - CSS กลางสำหรับหน้าจัดการ (Admin)
+   ========================================= */
+
+.manage-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-family: 'Sarabun', sans-serif;
+}
+
+.manage-container h2 {
+  color: #2c3e50;
+  border-bottom: 3px solid #3498db;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+}
+
+/* --- กล่องฟอร์ม (Form Box) --- */
+.manage-form-box {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 30px;
+}
+
+.manage-form-box h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* จัดฟอร์มเป็นแนวนอน (Inline Form) */
+.inline-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap; /* รองรับมือถือให้ตกบรรทัด */
+}
+
+.inline-form input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Sarabun', sans-serif;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.inline-form input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* --- ปุ่มกดในฟอร์ม (Button Styles) --- */
+.manage-container .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+  font-family: 'Sarabun', sans-serif;
+
+  /* 🔥 ไม้แข็ง: บังคับห้ามตัดคำ และห้ามหดตัวเด็ดขาด */
+  white-space: nowrap !important; 
+  flex-shrink: 0 !important;      
+  min-width: fit-content !important; 
+  width: auto !important;
+}
+
+/* ปุ่มเพิ่ม (สีฟ้า) */
+.btn-primary {
+  background-color: #3498db;
+}
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+/* ปุ่มแก้ไข (สีส้ม) */
+.btn-warning {
+  background-color: #f39c12;
+}
+.btn-warning:hover {
+  background-color: #d35400;
+}
+
+/* ปุ่มยกเลิก (สีเทา) */
+.btn-secondary {
+  background-color: #95a5a6;
+}
+.btn-secondary:hover {
+  background-color: #7f8c8d;
+}
+
+/* --- ตาราง (Table Styles) --- */
+.manage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.manage-table th {
+  background-color: #34495e;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.manage-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  vertical-align: middle;
+}
+
+.manage-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* --- ปุ่มไอคอนในตาราง (Edit/Delete/Save/Cancel) --- */
+.btn-icon {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: 0.2s;
+  color: white;
+}
+
+/* ปุ่มแก้ไข (เหลือง) */
+.edit {
+  background-color: #f1c40f; 
+}
+.edit:hover {
+  background-color: #f39c12;
+}
+
+/* ปุ่มลบ (แดง) */
+.delete {
+  background-color: #e74c3c; 
+}
+.delete:hover {
+  background-color: #c0392b;
+}
+
+/* ✅ ส่วนที่เพิ่มมาใหม่: สำหรับปุ่ม Save/Cancel ในตาราง */
+.btn-icon.save {
+  background-color: #2ecc71; /* สีเขียว */
+}
+.btn-icon.save:hover {
+  background-color: #27ae60;
+}
+
+.btn-icon.cancel {
+  background-color: #95a5a6; /* สีเทา */
+}
+.btn-icon.cancel:hover {
+  background-color: #7f8c8d;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .inline-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .inline-form input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

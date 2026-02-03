@@ -1,0 +1,230 @@
+.detail-page-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-back:hover { color: #3498db; }
+
+.detail-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.detail-image-section {
+  flex: 1;
+  min-width: 300px;
+  background: #f0f0f0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 500px;
+}
+
+.status-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.status-found { background: #f1c40f; color: #333; }
+.status-lost { background: #e74c3c; }
+.status-returned { background: #27ae60; color: white; } /* เพิ่มสีเขียว */
+
+.detail-info-section {
+  flex: 1;
+  padding: 40px;
+  min-width: 300px;
+}
+
+.detail-info-section h1 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+.date-text {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.info-group {
+  margin-bottom: 20px;
+}
+
+.info-group label {
+  display: block;
+  font-weight: bold;
+  color: #34495e;
+  margin-bottom: 5px;
+}
+
+.description-box p {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+.action-area {
+  margin-top: 40px;
+}
+
+.btn-claim {
+  width: 100%;
+  padding: 15px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-claim:hover { background: #2980b9; transform: translateY(-2px); }
+
+.btn-disabled {
+  width: 100%;
+  padding: 15px;
+  background: #bdc3c7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: not-allowed;
+}
+
+/* เพิ่มสไตล์สำหรับป้ายเตือนของหาย */
+.status-alert {
+  padding: 15px;
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ffeeba;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Modal Contact */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-contact-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.location-highlight {
+  background: #eef7ff;
+  color: #2980b9;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 1px dashed #3498db;
+}
+
+.admin-note {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 20px;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.btn-close {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-close:hover { background: #f0f0f0; }
+
+/* 1. เพิ่ม Smooth Animation ตอนเปิดหน้า */
+.detail-card {
+  animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. ทำให้รูปภาพดูหรูขึ้นและจัดการขนาดในมือถือ */
+.detail-image-section img {
+  /* เปลี่ยนจาก cover เป็น contain ถ้าต้องการให้เห็นรูปเต็มใบไม่โดนตัด */
+  object-fit: contain; 
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease;
+}
+
+.detail-image-section:hover img {
+  transform: scale(1.02); /* ขยายรูปเบาๆ ตอนเอาเมาส์ชี้ */
+}
+
+/* 3. ปรับ Modal ให้ดูทันสมัย (Backdrop Blur) */
+.modal-overlay {
+  backdrop-filter: blur(5px); /* พื้นหลังเบลอแบบกระจกฝ้า */
+  transition: all 0.3s;
+}
+
+/* 4. จัดการระยะห่างบนมือถือ (Responsive) */
+@media (max-width: 768px) {
+  .detail-info-section {
+    padding: 25px;
+  }
+  .detail-image-section {
+    height: 300px; /* ลดความสูงรูปลงในมือถือ */
+  }
+  .detail-info-section h1 {
+    font-size: 1.6rem;
+  }
+}

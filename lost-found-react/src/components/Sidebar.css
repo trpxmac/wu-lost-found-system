@@ -1,0 +1,120 @@
+/* 📂 src/components/Sidebar.css */
+
+.sidebar {
+  width: 260px;             /* ปรับความกว้างให้พอดี */
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  height: 100vh;            /* ความสูงเต็มจอ */
+  position: sticky;
+  top: 0;
+  display: flex;            /* ✅ ใช้ Flexbox */
+  flex-direction: column;   /* ✅ เรียงลงแนวตั้ง */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+.sidebar-header {
+  padding: 25px 20px;
+  border-bottom: 1px solid #34495e;
+  text-align: center;       /* จัดกลางให้สวยงาม */
+  background-color: #243342; /* สีเข้มขึ้นนิดหน่อยแยกส่วนหัว */
+  flex-shrink: 0;           /* ห้ามหด */
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  color: #3498db;
+  font-size: 1.4rem;
+}
+
+.sidebar-header p {
+  font-size: 0.85rem;
+  color: #95a5a6;
+  margin: 5px 0 0;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  flex: 1;                  /* ✅ ยืดขยายพื้นที่ให้เต็ม */
+  overflow-y: auto;         /* ✅ สำคัญ! ถ้าเมนูยาวเกิน ให้เลื่อนเฉพาะส่วนนี้ (ปุ่ม Logout จะไม่ตกขอบ) */
+}
+
+/* ปรับแต่ง Scrollbar ให้สวยงาม (สำหรับ Chrome/Edge) */
+.menu-list::-webkit-scrollbar {
+  width: 6px;
+}
+.menu-list::-webkit-scrollbar-thumb {
+  background-color: #34495e;
+  border-radius: 3px;
+}
+
+.menu-list li a {
+  display: block;
+  padding: 12px 25px;
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 4px solid transparent;
+  font-size: 0.95rem;
+}
+
+.menu-list li a:hover {
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+
+.menu-list li a.active {
+  background-color: #2c3e50; /* หรือสีที่เข้มกว่าพื้นหลังนิดหน่อย */
+  color: #3498db;
+  border-left-color: #3498db;
+  font-weight: bold;
+  background: linear-gradient(90deg, rgba(52,152,219,0.1) 0%, rgba(44,62,80,0) 100%);
+}
+
+.menu-group {
+  padding: 20px 25px 5px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #5d6d7e;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* --- ส่วนล่าง: ปุ่ม Logout --- */
+.sidebar-footer {
+  padding: 20px;
+  background-color: #243342; /* สีพื้นหลังส่วนล่าง */
+  border-top: 1px solid #34495e;
+  flex-shrink: 0;           /* ห้ามหด */
+}
+
+.btn-logout {
+  width: 100%;              /* กว้างเต็ม */
+  padding: 12px;
+  background-color: #e74c3c; /* สีแดง */
+  color: white;
+  border: none;
+  border-radius: 6px;       /* มุมมน */
+  font-size: 1rem;
+  font-family: 'Sarabun', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* จัดตัวหนังสือกลางปุ่ม */
+  gap: 8px;                 /* ระยะห่างไอคอนกับตัวหนังสือ */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-logout:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px); /* ขยับขึ้นเล็กน้อยตอนชี้ */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build Output
+dist
+dist-ssr
+build
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---------------------------------
+# 🔥 เพิ่มเติมสำหรับโปรเจกต์นี้
+# ---------------------------------
+
+# 1. Environment Variables (สำคัญมาก ห้ามหลุด)
+.env
+.env.production
+.env.development
+.env.local
+
+# 2. Uploaded Images (ไม่เอาไฟล์รูปที่ User อัปโหลดขึ้น Git)
+# แต่ให้เก็บโฟลเดอร์ uploads ไว้ (โดยการยกเว้นไฟล์ .gitkeep)
+uploads/*
+!uploads/.gitkeep
+public/uploads/*
+!public/uploads/.gitkeep
+
+# 3. Database (กรณีใช้ SQLite หรือไฟล์ db ชั่วคราว)
+*.sqlite
+*.sqlite3
+*.db
+
+# 4. OS Files
+Thumbs.db
