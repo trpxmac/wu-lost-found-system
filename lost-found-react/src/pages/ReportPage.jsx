@@ -7,10 +7,10 @@ function ReportPage() {
   const navigate = useNavigate()
   const [categories, setCategories] = useState([])
 
-  // ✅ 1. ฟังก์ชันหาวันที่ปัจจุบัน (YYYY-MM-DD)
-  const getTodayDate = () => {
+  // ✅ 1. ฟังก์ชันหาวันที่ปัจจุบัน และบวก 543 ให้เป็น "พ.ศ." เพื่อโชว์ในปฏิทิน
+  const getTodayDateBE = () => {
     const today = new Date();
-    const yyyy = today.getFullYear();
+    const yyyy = today.getFullYear() + 543; // 🔥 บวก 543 เข้าไป
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
     return `${yyyy}-${mm}-${dd}`;
@@ -21,7 +21,7 @@ function ReportPage() {
     item_name: '', 
     category_id: '', 
     location_found: '', 
-    date_found: getTodayDate(), // 🔥 2. ตั้งค่าเริ่มต้นเป็นวันนี้
+    date_found: getTodayDateBE(), // 🔥 2. ใช้ฟังก์ชันที่บวก พ.ศ. แล้ว
     description: '', 
     image: null,      
     previewUrl: null  
@@ -61,12 +61,17 @@ function ReportPage() {
         return
     }
 
+    // 🔥 3. แปลงวันที่ พ.ศ. กลับเป็น ค.ศ. ก่อนส่งเข้า Database (สำคัญมาก!)
+    const [yearBE, month, day] = formData.date_found.split('-');
+    const correctYearCE = parseInt(yearBE) - 543; // ลบ 543 กลับ
+    const dateToSendDB = `${correctYearCE}-${month}-${day}`; // จะได้ 2026-MM-DD
+
     // ใช้ FormData เพื่อส่งไฟล์
     const dataToSend = new FormData()
     dataToSend.append('name', formData.item_name)
     dataToSend.append('category', formData.category_id)
     dataToSend.append('location', formData.location_found)
-    dataToSend.append('date', formData.date_found)
+    dataToSend.append('date', dateToSendDB) // ✅ ส่งวันที่ ค.ศ. ที่ถูกต้องเข้า DB
     dataToSend.append('description', formData.description)
     dataToSend.append('created_by', user.id || user.user_id) 
 
@@ -141,8 +146,8 @@ function ReportPage() {
           <input required name="location_found" value={formData.location_found} onChange={handleChange} className="input-field" />
         </div>
         <div className="form-group">
-          <label>วันที่พบ *</label>
-          {/* ✅ ค่าในนี้จะเป็นวันที่ปัจจุบัน และเลือกเปลี่ยนได้ */}
+          <label>วันที่พบ (ปี พ.ศ.) *</label>
+          {/* ปฏิทินจะเริ่มที่ปี 256x ให้เอง */}
           <input type="date" required name="date_found" value={formData.date_found} onChange={handleChange} className="input-field" />
         </div>
         <div className="form-group">

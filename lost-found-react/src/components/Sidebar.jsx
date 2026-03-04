@@ -64,7 +64,7 @@ function Sidebar({ role, onLogout }) {
             <li className="menu-group">จัดการข้อมูล</li>
             <li><Link to="/report" className={isActive('/report')}>📢 แจ้งของหาย/พบ</Link></li>
             <li><Link to="/my-history" className={isActive('/my-history')}>🕒 ประวัติการแจ้ง</Link></li>
-            <li><Link to="/profile" className={isActive('/profile')}>👤 ข้อมูลส่วนตัว</Link></li>
+            <li><Link to="/profile" className={isActive('/profile')}>🧑 ข้อมูลส่วนตัว</Link></li>
           </>
         )}
 
@@ -73,7 +73,7 @@ function Sidebar({ role, onLogout }) {
           <>
             <li className="menu-group">ผู้ดูแลระบบ</li>
             <li><Link to="/admin/dashboard" className={isActive('/admin/dashboard')}>📊 แดชบอร์ด</Link></li>
-            <li><Link to="/admin/users" className={isActive('/admin/users')}>👥 จัดการผู้ใช้</Link></li>
+            <li><Link to="/admin/users" className={isActive('/admin/users')}>🧑‍🤝‍🧑 จัดการผู้ใช้</Link></li>
             <li><Link to="/admin/approve" className={isActive('/admin/approve')}>✅ อนุมัติสิ่งของ</Link></li>
             <li><Link to="/admin/claim" className={isActive('/admin/claim')}>📦 คืนสิ่งของ</Link></li>
             <li><Link to="/admin/categories" className={isActive('/admin/categories')}>📂 จัดการหมวดหมู่</Link></li>
